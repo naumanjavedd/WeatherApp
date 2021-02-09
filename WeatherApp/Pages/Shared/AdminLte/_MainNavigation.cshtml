@@ -1,0 +1,23 @@
+﻿@using static NavigationIndicatorHelper
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="~/Home" class="brand-link">
+        <i class="fas fa-moon"></i>
+        <span class="brand-text font-weight-light">Weather Application</span>
+    </a>
+    <div class="sidebar">
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item ">
+                    <a asp-controller="Home" asp-action="Index">
+                        
+                        <p>
+                            <i class="nav-icon fas fa-home"></i>
+                            Home
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
