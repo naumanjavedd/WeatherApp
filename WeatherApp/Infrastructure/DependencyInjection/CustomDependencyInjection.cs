@@ -6,7 +6,7 @@ using Services.Weather;
 
 namespace WebApplication.Infrastructure
 {
-    public static class CustomDI
+    public static class CustomDependencyInjection
     {
         public static void AddServices(this IServiceCollection services)
         {

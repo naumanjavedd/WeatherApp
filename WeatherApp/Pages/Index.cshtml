@@ -4,25 +4,39 @@
     Layout = "~/Pages/Shared/_Layout.cshtml"; }
 
 <form asp-page-handler="GetWeatherForecast" method="post">
-    <div class="form-group">
-        <div class="input-group">
-            <label>
-                Enter Address: &nbsp;
-            </label>
-            <input type="search" class="form-control" asp-for="SearchTerm" />
-            &nbsp;
-            <button id="btn_Search" class="btn btn-primary">
-                Search
-            </button>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Address: </label>
+                        <input type="search" name="address" class="form-control" asp-for="SearchTerms" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align:right">
+                    <button id="btn_Search" class="btn btn-primary">
+                        Search
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 </form>
 
-@if (Model.Forecast.ToList().Count > 0)
+@if (Model.Forecast != null && Model.Forecast.ToList().Count > 0)
 {
 <div class="box box-primary">
     <div class="box-header">
-
+        <h1>
+            Weather Details
+        </h1>
+        <p>
+            Weather forecast for: <strong> @Model.SearchTerms</strong>
+        </p>
     </div>
 
     <div id="div_Forcast" style=" padding-top: 50px;" class="row">
@@ -51,7 +65,7 @@
 </div>}
     </div>
 </div>}
-else if (Model.FirstTime == true)
+else if (Model.Forecast != null && Model.Forecast.ToList().Count == 0)
 {
 <h4>Result Not Found!</h4>}
 <div class="spanner">
