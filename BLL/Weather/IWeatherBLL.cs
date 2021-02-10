@@ -4,7 +4,7 @@ namespace BusinessLogic.Weather
 {
     public interface IWeatherBLL
     {
-        string GetWeatherForecast(decimal lon, decimal lat);
+        string GetWeatherForecast(decimal lat, decimal lon);
         WeatherForecastModel.Root GetWeatherDetails(string address);
     }
 }

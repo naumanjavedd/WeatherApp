@@ -15,12 +15,12 @@ namespace BusinessLogic.Weather
             this.geoCodingBLL = geoCodingBLL;
         }
 
-        public string GetWeatherForecast(decimal lon, decimal lat)
+        public string GetWeatherForecast(decimal lat, decimal lon)
         {
             string response = "";
             string requestUrl = URLBuilder.WeatherAPIURL + lon + "," + lat;
             var result = weatherService.GetWeatherByCoordinates(requestUrl);
-            if(result != null)
+            if (result != null)
             {
                 if (result.properties != null)
                 {
@@ -28,16 +28,16 @@ namespace BusinessLogic.Weather
                 }
             }
             return response;
-        }        
+        }
         public WeatherForecastModel.Root GetWeatherDetails(string address)
         {
             WeatherForecastModel.Root weatherDetails = new WeatherForecastModel.Root();
-            if(address != null)
+            if (address != null)
             {
                 var coordinates = geoCodingBLL.GetCoordinates(address);
                 if (coordinates.x != 0 && coordinates.y != 0)
                 {
-                    var forecastUrl = GetWeatherForecast(coordinates.y, coordinates.x);
+                    var forecastUrl = GetWeatherForecast(coordinates.x, coordinates.y);
                     weatherDetails = weatherService.GetWeatherDetails(forecastUrl);
                 }
             }
